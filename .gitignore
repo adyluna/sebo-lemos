@@ -3,4 +3,4 @@
 **/.nyc_output
 **/*.log
 **/build*
-**/docker
+docker
