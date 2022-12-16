@@ -25,7 +25,6 @@ class BookODM {
 
   public async findAll(): Promise<IBook[]> {
     const books = await this.model.find({});
-    console.log(books);
     
     return books;
   }
