@@ -30,7 +30,8 @@ services:
     ports:
       - 27017:27017
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
     restart: 'always'
     healthcheck:
       test: echo 'db.stats().ok' | mongo localhost:27017/test --quiet

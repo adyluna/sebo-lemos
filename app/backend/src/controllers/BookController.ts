@@ -32,4 +32,9 @@ export default class BookController {
       this.next(error);
     }
   }
+
+  public async getBooks() {
+    const books = await this.service.findBooks();
+    return this.res.status(201).json(books);
+  }
 }

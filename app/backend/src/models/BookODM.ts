@@ -20,7 +20,14 @@ class BookODM {
   }
 
   public async create(book: IBook): Promise<IBook> {
-    return this.model.create({...book});
+    return await this.model.create({...book});
+  }
+
+  public async findAll(): Promise<IBook[]> {
+    const books = await this.model.find({});
+    console.log(books);
+    
+    return books;
   }
 
 }

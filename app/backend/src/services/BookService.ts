@@ -25,6 +25,13 @@ class BookService {
 
     return this.createBookDomain(newBook);
   }
+
+  public async findBooks() {
+    const bookODM = new BookODM();
+    const books = await bookODM.findAll();
+    const withDomain = books.map((book) => this.createBookDomain(book));
+    return withDomain;
+  }
 }
 
 export default BookService;
