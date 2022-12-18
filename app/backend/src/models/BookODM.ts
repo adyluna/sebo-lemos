@@ -29,6 +29,12 @@ class BookODM {
     return books;
   }
 
+  public async insertMany(books: IBook[]): Promise<IBook[]> {
+    const insertedBooks = await this.model.insertMany(books);
+
+    return insertedBooks;
+  }
+
 }
 
 export default BookODM;

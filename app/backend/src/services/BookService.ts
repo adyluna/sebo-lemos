@@ -26,6 +26,14 @@ class BookService {
     return this.createBookDomain(newBook);
   }
 
+  public async insertManyBooks(books: IBook[]) {
+    const bookODM = new BookODM();
+    const insertedBooks = await bookODM.insertMany(books);
+    const withDomain = insertedBooks.map((book) => this.createBookDomain(book));
+
+    return withDomain
+  }
+
   public async findBooks() {
     const bookODM = new BookODM();
     const books = await bookODM.findAll();
