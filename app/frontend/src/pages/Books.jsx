@@ -12,7 +12,7 @@ const Books = () => {
     }).catch((error) => console.log(error));
   }, []);
 
-  const showBooks = books && books.map((book) => <h1>{ book.name }</h1>)
+  const showBooks = books && books.map((book, index) => <h1 key={ index } >{ book.name }</h1>);
 
   return (
       showBooks
