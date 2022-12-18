@@ -4,7 +4,7 @@
   "description": "Sebo Lemos O objetivo desse projeto é desenvolver um aplicativo que sirva como catálogo dos livros a venda no e-commerce Sebo Lemos, um sebo virtual de livros. Aqui tenho a oportunidade de aplicar e aprimorar as habilidades que venho adquirindo em desenvolvimento web.",
   "main": "index.js",
   "scripts": {
-    "compose:up": "cd app && docker-compose up -d",
+    "compose:up": "cd app && docker-compose up -d --build",
     "compose:down": "cd app && docker-compose down --remove-orphans",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
