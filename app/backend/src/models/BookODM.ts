@@ -29,17 +29,16 @@ class BookODM {
     return insertedBooks;
   }
 
-  public async find(condition: ICondition): Promise<IBook | null> {
-    const book = await this.model.findOne(condition);
+  public async find(condition: ICondition): Promise<IBook[] | null> {
+    const [...book] = await this.model.find(condition);
+
     
-    if (book) return book
+    if (book.length > 0) return [...book];
     return null;
   }
 
   public async findAll(): Promise<IBook[]> {
     const books = await this.model.find();
-    console.log(books);
-    
     
     return books;
   }

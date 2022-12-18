@@ -34,12 +34,15 @@ class BookService {
     return withDomain
   }
 
-  public async findBook(condition: ICondition): Promise<Book | null> {
+  public async findBook(condition: ICondition): Promise<Book[] | null> {
     const bookODM = new BookODM();
-    const book = await bookODM.find(condition);
-    const withDomain = this.createBookDomain(book);
+    const result = await bookODM.find(condition);
+    if (result) {
+      const withDomain = result.map((book) => this.createBookDomain(book));
+      return withDomain as Book[];
+    }
 
-    return withDomain;
+    return null
   }
 
   public async findBooks(): Promise<Book[]> {
