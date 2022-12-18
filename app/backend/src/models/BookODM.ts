@@ -1,5 +1,5 @@
 import { Model, Schema, model, models } from 'mongoose';
-import IBook from '../interfaces/IBook';
+import IBook, { ICondition } from '../interfaces/IBook';
 
 class BookODM {
   private schema: Schema;
@@ -19,20 +19,27 @@ class BookODM {
     this.model = models.Book || model('Book', this.schema);
   }
 
-  public async create(book: IBook): Promise<IBook> {
+  public async insert(book: IBook): Promise<IBook> {
     return await this.model.create({...book});
-  }
-
-  public async findAll(): Promise<IBook[]> {
-    const books = await this.model.find({});
-    
-    return books;
   }
 
   public async insertMany(books: IBook[]): Promise<IBook[]> {
     const insertedBooks = await this.model.insertMany(books);
 
     return insertedBooks;
+  }
+
+  public async find(condition: ICondition): Promise<IBook | null> {
+    const book = await this.model.findOne(condition);
+    
+    if (book) return book
+    return null;
+  }
+
+  public async findAll(): Promise<IBook[]> {
+    const books = await this.model.find({});
+    
+    return books;
   }
 
 }

@@ -15,7 +15,7 @@ export default class BookController {
     this.service = new BookService();
   }
 
-  public async create() {
+  public async insertBook() {
     const book: IBook = {
       name: this.req.body.name,
       author: this.req.body.author,
@@ -33,7 +33,17 @@ export default class BookController {
     }
   }
 
-  public async getBooks() {
+  public async findBook() {
+    const condition = this.req.body;
+    
+    const book = await this.service.findBook(condition);
+
+    if (book) return this.res.status(201).json(book);
+
+    return this.res.status(400).json({ message: 'Cant find any matching book' });
+  }
+
+  public async findBooks() {
     const books = await this.service.findBooks();
     return this.res.status(201).json(books);
   }

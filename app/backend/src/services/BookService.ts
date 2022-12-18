@@ -1,5 +1,5 @@
 import Book from "../domain/Book";
-import IBook from "../interfaces/IBook";
+import IBook, { ICondition } from "../interfaces/IBook";
 import BookODM from "../models/BookODM";
 
 class BookService {
@@ -21,7 +21,7 @@ class BookService {
 
   public async insertBook(book: IBook) {
     const bookODM = new BookODM();
-    const newBook = await bookODM.create(book);
+    const newBook = await bookODM.insert(book);
 
     return this.createBookDomain(newBook);
   }
@@ -34,11 +34,20 @@ class BookService {
     return withDomain
   }
 
-  public async findBooks() {
+  public async findBook(condition: ICondition): Promise<Book | null> {
+    const bookODM = new BookODM();
+    const book = await bookODM.find(condition);
+    const withDomain = this.createBookDomain(book);
+
+    return withDomain;
+  }
+
+  public async findBooks(): Promise<Book[]> {
     const bookODM = new BookODM();
     const books = await bookODM.findAll();
     const withDomain = books.map((book) => this.createBookDomain(book));
-    return withDomain;
+
+    return withDomain as Book[];
   }
 }
 
