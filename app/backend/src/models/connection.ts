@@ -1,17 +1,11 @@
 
 import * as mongoose from 'mongoose';
-import 'dotenv/config';
 
 const MONGO_DB_URL = 'mongodb://root:123456@db';
+const options = {
+  dbName: 'sebo'
+};
 
-const connectionpOptions = {
-  dbName: 'sebo',
-  useUnifiedTopology: true,
-}
-
-const connectToDatabase = (
-  mongoDatabaseURI = process.env.MONGO_URI
-    || MONGO_DB_URL,
-) => mongoose.connect(mongoDatabaseURI, connectionpOptions);
+const connectToDatabase = () => mongoose.connect(MONGO_DB_URL, options);
 
 export default connectToDatabase;

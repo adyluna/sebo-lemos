@@ -14,7 +14,7 @@ export default class BookController {
     this.next = next;
     this.service = new BookService();
   }
-
+  
   public async insertBook() {
     const book: IBook = {
       name: this.req.body.name,
