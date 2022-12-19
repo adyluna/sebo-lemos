@@ -24,7 +24,12 @@ const Books = () => {
     return (
       <div>
         <BooksList books={ currentPosts }/>
-        <Pagination totalPosts={ books.length } postsPerPage={postsPerPage} setCurrentPage={ setCurrentPage }/>
+        <Pagination
+          totalPosts={ books.length }
+          postsPerPage={postsPerPage}
+          currentPage={ currentPage }
+          setCurrentPage={ setCurrentPage }
+          />
       </div>
     )
   }
