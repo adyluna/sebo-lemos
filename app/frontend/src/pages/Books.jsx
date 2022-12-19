@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import BooksList from '../components/BooksList';
+import Pagination from '../components/Pagination';
 import { requestData } from '../services/requests';
 
 const Books = () => {
 
-  const [books, setBooks] = useState();
+  const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(8);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
     const endpoint = '/allbooks'
@@ -23,15 +24,18 @@ const Books = () => {
     return (
       <div>
         <BooksList books={ currentPosts }/>
+        <Pagination totalPosts={ books.length } postsPerPage={postsPerPage} setCurrentPage={ setCurrentPage }/>
       </div>
     )
   }
- 
-  // <Pagination totalPosts={ books.length } postsPerPage={postsPerPage} />
 
-  return (
-    books && showBooks()
-    );
+  if (books.length >= 1) {
+    return (
+      showBooks()
+      );
+  }
+
+  return <h1>Carregando...</h1>
 }
 
 export default Books;
