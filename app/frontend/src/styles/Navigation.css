@@ -1,0 +1,11 @@
+.Navigation {
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+}
+
+.Navigation a {
+  color: #E5B100;
+  width: 70px;
+  text-decoration: none;
+}

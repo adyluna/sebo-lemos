@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import BooksList from '../components/BooksList';
+import BookList from '../components/BookList';
 import Pagination from '../components/Pagination';
+import Loading from '../components/Loading';
 import { requestData } from '../services/requests';
+import '../styles/Books.css';
 
 const Books = () => {
 
@@ -22,8 +24,8 @@ const Books = () => {
 
   const showBooks = () => {
     return (
-      <div>
-        <BooksList books={ currentPosts }/>
+      <div className='BookListContainer'>
+        <BookList books={ currentPosts }/>
         <Pagination
           totalPosts={ books.length }
           postsPerPage={postsPerPage}
@@ -40,7 +42,7 @@ const Books = () => {
       );
   }
 
-  return <h1>Carregando...</h1>
+  return <Loading />
 }
 
 export default Books;

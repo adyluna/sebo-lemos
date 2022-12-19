@@ -1,0 +1,12 @@
+.BookList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Book {
+  flex: 1 0 10%;
+  margin: 30px;
+  width: 50px;
+  min-height: 50;
+  max-height: 300;
+}

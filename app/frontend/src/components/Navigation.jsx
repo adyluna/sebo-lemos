@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Navigation.css';
 
 class Navigation extends Component {
   render() {
     return (
       <div className="Navigation">
-        <Link style={ { color: 'white' } } to="/">Início</Link>
-        <Link style={ { color: 'white' } } to="/about">Sobre</Link>
-        <Link style={ { color: 'white' } } to="/books">Livros</Link>
-        <Link style={ { color: 'white' } } to="/contact">Contato</Link>
+        <Link to="/">Início</Link>
+        <Link to="/about">Sobre</Link>
+        <Link to="/books">Livros</Link>
+        <Link to="/contact">Contato</Link>
       </div>
     );
   }

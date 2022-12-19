@@ -1,0 +1,8 @@
+.BookListContainer {
+  border: 1px solid red;
+  background-color: #413D4C;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

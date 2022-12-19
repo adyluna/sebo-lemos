@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/Pagination.css';
 
+
 const Pagination = ({  totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
   const pages = [];
   
@@ -9,7 +10,7 @@ const Pagination = ({  totalPosts, postsPerPage, setCurrentPage, currentPage }) 
   }
 
   return (
-    <div className="pagination">
+    <div className="Pagination">
       {
         pages.map((page, index) => {
           return (
