@@ -3,7 +3,7 @@ import BookList from '../components/BookList';
 import Pagination from '../components/Pagination';
 import Loading from '../components/Loading';
 import { requestData } from '../services/requests';
-import '../styles/Books.css';
+// import '../styles/Books.css';
 
 const Books = () => {
 
