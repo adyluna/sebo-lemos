@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch \"./src/**\" ./src/server.ts",
+    "build":"/bin/sh tsc_eval.sh",
+    "start": "nodemon --watch \"./src/**\" ./build/server.js",
+    "start:local": "nodemon --watch \"./src/**\" ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
