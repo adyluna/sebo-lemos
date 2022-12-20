@@ -6,7 +6,7 @@ import routes from './routes/Routes';
 const app = express();
 app.use(express.json());
 
-const RAILWAY = "https://sebo-frontend-production.up.railway.app" || "https://localhost:3000";
+const RAILWAY = ["https://sebo-frontend-production.up.railway.app", "https://localhost:3000"];
 
 // entre!
 
