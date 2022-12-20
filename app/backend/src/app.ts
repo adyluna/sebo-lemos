@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 const RAILWAY = "https://sebo-frontend-production.up.railway.app";
-const LOCAL = "http://localhost:3000"
+const LOCAL = "http://localhost:3000";
 // entre!
 
 app.use(function(req, res, next) {
