@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/server",
+  "main": "./build/server.js",
   "scripts": {
     "build":"/bin/sh tsc_eval.sh",
     "start": "node .",
