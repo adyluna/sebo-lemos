@@ -1,5 +1,5 @@
 FROM node:16.14-alpine
-WORKDIR /app-backend
+WORKDIR /backend
 COPY . .
 RUN npm install
 EXPOSE 3001
