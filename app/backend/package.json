@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/server",
   "scripts": {
     "build":"/bin/sh tsc_eval.sh",
-    "start": "node ./build/server.js",
+    "start": "node .",
     "start:local": "nodemon --watch \"./src/**\" ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
