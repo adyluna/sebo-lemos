@@ -1,11 +1,18 @@
 
 import * as mongoose from 'mongoose';
+import 'dotenv/config';
 
-const MONGO_DB_URL = 'mongodb://root:123456@db';
+const MONGOHOST = process.env.MONGOHOST;
+const MONGOPASSWORD = process.env.MONGOPASSWORD;
+const MONGOPORT = process.env.MONGOPORT;
+const MONGOUSER = process.env.MONGOUSER;
+
+const URL = `mongodb://${ MONGOUSER }:${ MONGOPASSWORD }@${ MONGOHOST }:${ MONGOPORT }`
+
 const options = {
   dbName: 'sebo'
 };
 
-const connectToDatabase = () => mongoose.connect(MONGO_DB_URL, options);
+const connectToDatabase = () => mongoose.connect(URL, options);
 
 export default connectToDatabase;
