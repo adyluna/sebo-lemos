@@ -1,18 +1,24 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-// import '../styles/Navigation.css';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import '../styles/Navigation.css';
 
-class Navigation extends Component {
-  render() {
-    return (
-      <div className="Navigation">
-        <Link to="/">Início</Link>
-        <Link to="/about">Sobre</Link>
-        <Link to="/books">Livros</Link>
-        <Link to="/contact">Contato</Link>
-      </div>
-    );
-  }
+const Navigation = () => {
+  return (
+    <Navbar className='Navigation' expand="lg">
+      <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="about">Sobre</Nav.Link>
+            <Nav.Link href="books">Livros</Nav.Link>
+            <Nav.Link href="contact">Contato</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
 export default Navigation;

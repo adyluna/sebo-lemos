@@ -6,21 +6,21 @@ import About from './pages/About';
 import Books from './pages/Books';
 import Contact from './pages/Contact';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
 
 function App() {
   return (
   <Container fluid>
-    <Col className="border d-flex align-items-center justify-content-center">
+    <Row>
       <Header />
-    </Col>
-    <Col className="border d-flex align-items-center justify-content-center">
-    <Switch>
-        <Route exact path="/" component={ Home } />
-        <Route path="/about" component={ About } />
-        <Route path="/books" component={ Books } />
-        <Route path="/contact" component={ Contact } />
+    </Row>
+    <Col className='d-flex flex-column align-items-center justify-content-center mt-5'>
+      <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/about" component={ About } />
+          <Route path="/books" component={ Books } />
+          <Route path="/contact" component={ Contact } />
       </Switch>
     </Col>
   </Container>
