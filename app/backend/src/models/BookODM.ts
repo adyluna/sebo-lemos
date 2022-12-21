@@ -43,6 +43,11 @@ class BookODM {
     return books;
   }
 
+  // public async deleteMany() {
+  //   await this.model.deleteMany({});
+  //   return null;
+  // }
+
 }
 
 export default BookODM;
