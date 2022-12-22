@@ -4,7 +4,8 @@ import BookPagination from '../components/BookPagination';
 import Loading from '../components/Loading';
 import { requestData } from '../services/requests';
 import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/esm/Col';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 const Books = () => {
 
@@ -26,6 +27,16 @@ const Books = () => {
   const showBooks = () => {
     return (
       <div className='m-2 text-center'>
+        <Row className='align-itens-center justify-content-center'>
+          <InputGroup className="mb-3 w-50 mt-2">
+          <InputGroup.Text className='d-flex' id="basic-addon1">@</InputGroup.Text>
+          <Form.Control
+            placeholder="Procure um livro"
+            aria-label="Procure um livro"
+            aria-describedby="basic-addon1"
+          />
+          </InputGroup>
+        </Row>
         <div className='d-flex flex-wrap align-items-center justify-content-center m-2 p-1 h-100'>
           <BookList books={ currentPosts }/>
         </div>

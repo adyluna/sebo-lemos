@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
 import './App.css';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -17,13 +18,15 @@ function App() {
     <div className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
-            <Route path="/about" component={ About } />
-            <Route path="/books" component={ Books } />
-            <Route path="/contact" component={ Contact } />
+            <Route exact path="/about" component={ About } />
+            <Route exact path="/books" component={ Books } />
+            <Route exact path="/contact" component={ Contact } />
+            <Route exact path="/login" component={ Login } />
         </Switch>
     </div>
   </Container>
   );
 }
+
 
 export default App;
