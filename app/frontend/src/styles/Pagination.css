@@ -1,3 +1,4 @@
 .Pagination {
   background-color: rgba(227, 178, 5, 0.69);
+  align-self: flex-end;
 }

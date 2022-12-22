@@ -6,25 +6,22 @@ import Books from './pages/Books';
 import Contact from './pages/Contact';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/esm/Col';
 import './App.css';
 
 function App() {
   return (
-  <Container fluid className='App'>
+  <Container fluid className='App vh-100'>
     <Row>
       <Header />
     </Row>
-    <Row>
-      <Col className='mt-4'>
+    <div className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
             <Route path="/about" component={ About } />
             <Route path="/books" component={ Books } />
             <Route path="/contact" component={ Contact } />
         </Switch>
-      </Col>
-    </Row>
+    </div>
   </Container>
   );
 }
