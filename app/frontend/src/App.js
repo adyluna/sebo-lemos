@@ -5,16 +5,13 @@ import About from './pages/About';
 import Books from './pages/Books';
 import Contact from './pages/Contact';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/esm/Row';
 import './App.css';
 import Login from './pages/Login';
 
 function App() {
   return (
   <Container fluid className='App vh-100'>
-    <Row>
       <Header />
-    </Row>
     <div className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
