@@ -12,7 +12,7 @@ const BookList = ({books}) => {
 
   const showBooks = books.map(({ name, author, genre, condition, price }, index) => {
     return (
-    <div key={index}>
+    <div key={index} className="p-3">
       <h5>{ truncate(name) }</h5>
       <p>Autor: { author }</p>
       <p>{ genre }</p>

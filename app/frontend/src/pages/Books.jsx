@@ -3,7 +3,9 @@ import BookList from '../components/BookList';
 import BookPagination from '../components/BookPagination';
 import Loading from '../components/Loading';
 import { requestData } from '../services/requests';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
+
 
 const Books = () => {
 
@@ -24,16 +26,18 @@ const Books = () => {
 
   const showBooks = () => {
     return (
-      <div className='BookListContainer'>
+      <Container>
         <Row lg={5} md={3} sm={1} className='m-2 text-center'>
           <BookList books={ currentPosts }/>
         </Row>
-        <BookPagination
+        <Row>
+          <BookPagination
           total={ Math.ceil(books.length / postsPerPage) }
           current={ currentPage }
           onChangePage={ setCurrentPage }
           />
-      </div>
+        </Row>
+      </Container>
     )
   }
 
