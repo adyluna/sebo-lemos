@@ -16,7 +16,7 @@ function App() {
       <Header />
     </Row>
     <Row>
-      <Col className='Body mt-4 vh-100'>
+      <Col className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
             <Route path="/about" component={ About } />
