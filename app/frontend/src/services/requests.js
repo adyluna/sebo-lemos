@@ -9,7 +9,9 @@ const api = axios.create({
 // };
 
 export const requestData = async (endpoint) => {
-  const { data } = await api.get(endpoint);
+  const result = await api.get(endpoint);
+  console.log(result);
+  const { data } = result;
   return data;
 };
 

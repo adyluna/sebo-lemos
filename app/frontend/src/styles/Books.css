@@ -1,9 +1,3 @@
-.BookListContainer {
-  margin-top: 40px;
-  padding: 40px;
-  background-color: white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.Book {
+  background-color: #E5B100;
 }
