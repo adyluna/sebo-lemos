@@ -5,7 +5,9 @@ import Loading from '../components/Loading';
 import { requestData } from '../services/requests';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
-
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import logo from '../images/seboLogo.jpeg';
 
 const Books = () => {
 
@@ -27,14 +29,24 @@ const Books = () => {
   const showBooks = () => {
     return (
       <Container>
+        <Row className='align-itens-center justify-content-center'>
+          <InputGroup className="mb-3 w-50 mt-2">
+          <InputGroup.Text className='d-flex' id="basic-addon1">@</InputGroup.Text>
+          <Form.Control
+            placeholder="Procure um livro"
+            aria-label="Procure um livro"
+            aria-describedby="basic-addon1"
+          />
+          </InputGroup>
+        </Row>
         <Row lg={5} md={3} sm={1} className='m-2 text-center'>
           <BookList books={ currentPosts }/>
         </Row>
         <Row>
-        <BookPagination
-          total={ Math.ceil(books.length / postsPerPage) }
-          current={ currentPage }
-          onChangePage={ setCurrentPage }
+          <BookPagination
+            total={ Math.ceil(books.length / postsPerPage) }
+            current={ currentPage }
+            onChangePage={ setCurrentPage }
           />
         </Row>
       </Container>
