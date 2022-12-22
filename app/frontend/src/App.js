@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Container from 'react-bootstrap/Container';
 import './App.css';
 import Login from './pages/Login';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/login" component={ Login } />
         </Switch>
     </div>
+    <Footer />
   </Container>
   );
 }

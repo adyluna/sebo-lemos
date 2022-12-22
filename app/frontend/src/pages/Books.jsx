@@ -14,7 +14,9 @@ const Books = () => {
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
-  const [searchValue, setSearchValue] = useState('');
+  
+  // Usado para procurar ao clicar no botão
+  const [searchValue, setSearchValue] = useState(''); 
 
   useEffect(() => {
     const endpoint = '/allbooks';
