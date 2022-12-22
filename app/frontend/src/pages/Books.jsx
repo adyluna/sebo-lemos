@@ -9,6 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 const Books = () => {
 
+  const [allBooks, setAllBooks] = useState([]);
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(12);
@@ -16,13 +17,31 @@ const Books = () => {
   useEffect(() => {
     const endpoint = '/allbooks'
     requestData(endpoint).then((response) => {
+      setAllBooks(response);
       setBooks(response);
     }).catch((error) => console.log(error));
-  }, []);
+  }, [setAllBooks]);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = books && books.slice(firstPostIndex, lastPostIndex);
+
+  const filterBooks = (value) => {
+    if (value === "") {
+      return setBooks(allBooks);
+    }
+
+    const result = books.filter(({ name }) => {
+      const bookName = name.toLowerCase();
+      return bookName.includes(value.toLowerCase());
+    });
+
+    if (result.length === 0) {
+      setBooks(allBooks);
+    } else {
+      setBooks(result); 
+    }
+  };
 
   const showBooks = () => {
     return (
@@ -34,6 +53,7 @@ const Books = () => {
             placeholder="Procure um livro"
             aria-label="Procure um livro"
             aria-describedby="basic-addon1"
+            onChange={(event) => filterBooks(event.target.value)}
           />
           </InputGroup>
         </Row>
