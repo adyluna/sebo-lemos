@@ -6,7 +6,6 @@ import Books from './pages/Books';
 import Contact from './pages/Contact';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/esm/Col';
 import './App.css';
 import Login from './pages/Login';
 

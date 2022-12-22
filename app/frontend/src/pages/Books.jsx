@@ -31,7 +31,7 @@ const Books = () => {
           <BookList books={ currentPosts }/>
         </Row>
         <Row>
-          <BookPagination
+        <BookPagination
           total={ Math.ceil(books.length / postsPerPage) }
           current={ currentPage }
           onChangePage={ setCurrentPage }

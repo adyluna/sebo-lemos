@@ -20,7 +20,7 @@ const BookPagination = ({  total, current, onChangePage }) => {
   }
 
   return (
-    <Pagination className="justify-content-center position-absolute top-100 start-50 translate-middle">{items}</Pagination>
+    <Pagination className="justify-content-center position-absolute bottom-0 start-50 translate-middle">{items}</Pagination>
   )
 };
 
