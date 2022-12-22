@@ -1,6 +1,6 @@
 import React from "react";
 
-const BookList = ({books}) => {
+const Book = ({ name, author, genre, condition, price, index }) => {
 
   const truncate = (str) => {
     if (str.length > 20) {
@@ -10,8 +10,7 @@ const BookList = ({books}) => {
     return str;
   }
 
-  const showBooks = books.map(({ name, author, genre, condition, price }, index) => {
-    return (
+  return (
     <div key={index} className="p-1 m-4 w-25 h-25">
       <h5>{ truncate(name) }</h5>
       <p>Autor: { author }</p>
@@ -19,12 +18,7 @@ const BookList = ({books}) => {
       <p>{ condition }</p>
       { price && <p>R$ { price },00</p> }
     </div>
-  )
-  })
-
-  return (
-    showBooks
   );
-}
+};
 
-export default BookList;
+export default Book;
