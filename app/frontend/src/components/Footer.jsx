@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <Container>
       <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 border-top">
-        <div>
+        <div className="d-flex justify-content-between align-items-center">
           <img style={{ width: 30, height: 30, borderRadius: 50}} className="img-fluid" src={logo} alt="sebo-logo"/>
         </div>
         <div className="nav col-md-4 justify-content-end list-unstyled d-flex">

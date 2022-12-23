@@ -13,7 +13,6 @@ const Navigation = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="about">Sobre</Nav.Link>
             <Nav.Link href="books">Livros</Nav.Link>
-            <Nav.Link href="contact">Contato</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
