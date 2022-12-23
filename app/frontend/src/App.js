@@ -1,4 +1,3 @@
-import Header from './components/Header';
 import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -7,12 +6,12 @@ import Container from 'react-bootstrap/Container';
 import './App.css';
 import Login from './pages/Login';
 import Footer from './components/Footer';
-import TestHeader from './components/TestHeader';
+import Header from './components/Header';
 
 function App() {
   return (
   <Container fluid className='App w-100 vh-100'>
-    <TestHeader />
+    <Header />
     <Container fluid className='mt-4 w-100'>
         <Switch>
             <Route exact path="/" component={ Home } />
