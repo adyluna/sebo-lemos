@@ -11,9 +11,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-  <Container fluid className='App vh-100'>
-      <Header />
-    <div className='mt-4'>
+  <Container fluid className='App w-100 vh-100'>
+    <Header />
+    <Container fluid className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
             <Route exact path="/about" component={ About } />
@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/contact" component={ Contact } />
             <Route exact path="/login" component={ Login } />
         </Switch>
-    </div>
+    </Container>
     <Footer />
   </Container>
   );

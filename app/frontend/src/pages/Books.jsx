@@ -3,6 +3,7 @@ import Book from '../components/Book';
 import BookPagination from '../components/BookPagination';
 import Loading from '../components/Loading';
 import { requestData } from '../services/requests';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -70,10 +71,11 @@ const Books = () => {
 
   const showBooks = () => {
     return (
-      <div className='m-2 text-center'>
+      <Container fluid className='m-2 text-center'>
         { SearchBar() }
-        <div className='d-flex flex-wrap align-items-center justify-content-center m-2 p-1 h-100'>
-          { currentPosts.map(({ name, author, genre, condition, price }, index) => {
+        <Container fluid>
+          <Row className='d-flex flex-wrap align-items-center justify-content-center m-2 p-1'>
+            { currentPosts.map(({ name, author, genre, condition, price }, index) => {
               return <Book
               index={index}
               name={name}
@@ -83,15 +85,16 @@ const Books = () => {
               price={price}
             />
           }) }
-        </div>
-        <Row className='position-absolute top-100 start-50 translate-middle'>
+          </Row>
+        </Container>
+        <Row>
           <BookPagination
           total={ Math.ceil(books.length / postsPerPage) }
           current={ currentPage }
           onChangePage={ setCurrentPage }
           />
         </Row>
-      </div>
+      </Container>
     )
   }
 
