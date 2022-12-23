@@ -7,11 +7,12 @@ import Container from 'react-bootstrap/Container';
 import './App.css';
 import Login from './pages/Login';
 import Footer from './components/Footer';
+import TestHeader from './components/TestHeader';
 
 function App() {
   return (
   <Container fluid className='App w-100 vh-100'>
-    <Header />
+    <TestHeader />
     <Container fluid className='mt-4 w-100'>
         <Switch>
             <Route exact path="/" component={ Home } />
