@@ -5,3 +5,4 @@ node_modules.tar.gz
 /src/docs
 .env
 *.http
+/vscode
