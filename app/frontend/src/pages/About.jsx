@@ -1,17 +1,17 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
 import logo from '../images/seboLogo.jpeg';
 
 class About extends React.Component {
   render() {
     return (
       <Container>
-        <Row className='align-itens-center justify-content-center'>
-          <Col>
-            <img className='w-100 h-100' src={logo} alt='sebo-logo'/>
+        <Row  className='align-itens-center justify-content-center'>
+          <Col lg={6}>
+            <Image fluid src={logo} alt='sebo-logo'/>
           </Col>
-          <Col>
-            <p className='fs-4 font-monospace'>
+          <Col lg={6} className="p-3">
+            <p style={{ fontSize: '2vw' }} className='font-monospace'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
               magna aliqua. Consequat ac felis donec et. Nulla aliquet enim tortor at. Lacus sed viverra tellus in. Urna nunc 
               id cursus metus aliquam eleifend. Felis imperdiet proin fermentum leo. Tincidunt nunc pulvinar sapien et ligula

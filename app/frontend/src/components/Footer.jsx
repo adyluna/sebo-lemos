@@ -2,6 +2,7 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import logo from '../images/seboLogo.jpeg';
 
+
 const Footer = () => {
   return (
     <Container>

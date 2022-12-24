@@ -10,9 +10,9 @@ import Header from './components/Header';
 
 function App() {
   return (
-  <Container fluid className='App w-100 vh-100'>
+  <Container fluid className='App'>
     <Header />
-    <Container fluid className='mt-4 w-100'>
+    <Container fluid className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
             <Route exact path="/about" component={ About } />
