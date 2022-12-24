@@ -12,7 +12,7 @@ function App() {
   return (
   <Container fluid className='App'>
     <Header />
-    <Container fluid className='mt-4'>
+    <Container className='mt-4'>
         <Switch>
             <Route exact path="/" component={ Home } />
             <Route exact path="/about" component={ About } />
