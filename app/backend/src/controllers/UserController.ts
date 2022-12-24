@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import User from '../domain/User';
 import { IUser } from '../interfaces/IUser';
 import UserService from '../services/UserService';
 
