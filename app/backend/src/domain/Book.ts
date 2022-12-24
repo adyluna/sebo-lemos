@@ -1,5 +1,5 @@
 class Book {
-  private id?: string | undefined; // undefined se os dados não estiverem no banco (Ex: antes do cadastro)
+  private id?: string | undefined;
   private name: string;
   private author: string;
   private genre?: string;
@@ -21,10 +21,6 @@ class Book {
     this.condition = condition;
     this.price = price;
     this.quantity = quantity;
-  }
-
-  public getId() {
-    return this.id;
   }
 }
 
