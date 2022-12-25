@@ -21,8 +21,8 @@ class UserODM {
     return await this.model.create({...user});
   }
 
-  public async find(email: string): Promise<IUser | null> {
-    const [user] = await this.model.find({email});
+  public async findOne(email: string): Promise<IUser | null> {
+    const user = await this.model.findOne({email});
 
     
     if (user) return user;

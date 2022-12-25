@@ -1,9 +1,13 @@
+import { compareSync } from 'bcryptjs';
+import HttpException from '../utils/HttpException';
 import User from "../domain/User";
 import { IUser } from "../interfaces/IUser";
 import UserODM from "../models/UserODM";
-import HttpException from "../utils/HttpException";
+import Jwt from "../utils/Jwt";
 
 class UserService {
+
+  constructor(private _jwt: Jwt) { }
 
   private createUserDomain(user: IUser | null): User | null {
     if(user) {
@@ -18,9 +22,29 @@ class UserService {
     return null;
   }
 
+  login = async (email: string, password: string): Promise<string> => {
+    const userODM = new UserODM();
+    const userInfo = await userODM.findOne(email);
+
+    console.log(userInfo);
+    
+
+    if (!userInfo || !compareSync(password, userInfo.password as string)) {
+      throw new HttpException(401, 'Incorrect email or password');
+    }
+
+    const token = this._jwt.createToken({
+      name: userInfo.name,
+      email: userInfo.email,
+      role: userInfo.role as string,
+    });
+
+    return token;
+  };
+
   public async findUser(email: string): Promise<User | null> {
     const userODM = new UserODM();
-    const result = await userODM.find(email);
+    const result = await userODM.findOne(email);
     if (result) {
       return this.createUserDomain(result);
     }
