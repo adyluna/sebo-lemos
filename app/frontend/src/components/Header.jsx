@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from '../images/seboLogo.jpeg';
 
-const TestHeader = () => {
+const Header = () => {
+
   return (
     <header style={{ backgroundColor: '#3A095B' }} className="p-3">
     <div className="container-fluid">
@@ -28,4 +29,4 @@ const TestHeader = () => {
   );
 }
 
-export default TestHeader;
+export default Header;
