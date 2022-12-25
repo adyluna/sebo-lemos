@@ -17,7 +17,7 @@ class UserService {
     return null;
   }
 
-  public async insertUser(user: IUser) {
+  public async createUser(user: IUser) {
     const userODM = new UserODM();
     const newUser = await userODM.insert(user);
 

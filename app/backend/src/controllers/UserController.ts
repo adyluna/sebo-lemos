@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import User from '../domain/User';
 import { IUser } from '../interfaces/IUser';
 import UserService from '../services/UserService';
 
@@ -16,7 +15,7 @@ export default class UserController {
     this.service = new UserService();
   }
   
-  public async insertUser() {
+  public async createUser() {
     const user: IUser = {
       name: this.req.body.name,
       email: this.req.body.email,
@@ -25,7 +24,7 @@ export default class UserController {
     }
 
     try {
-      await this.service.insertUser(user);
+      await this.service.createUser(user);
       delete user.password;
       return this.res.status(201).json({ user });
     } catch (error) {
