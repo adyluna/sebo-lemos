@@ -1,4 +1,4 @@
-import { compareSync } from 'bcryptjs';
+import { compareSync, hashSync } from 'bcryptjs';
 import HttpException from '../utils/HttpException';
 import User from "../domain/User";
 import { IUser } from "../interfaces/IUser";
@@ -25,9 +25,6 @@ class UserService {
   login = async (email: string, password: string): Promise<string> => {
     const userODM = new UserODM();
     const userInfo = await userODM.findOne(email);
-
-    console.log(userInfo);
-    
 
     if (!userInfo || !compareSync(password, userInfo.password as string)) {
       throw new HttpException(401, 'Incorrect email or password');
@@ -60,6 +57,7 @@ class UserService {
       throw new HttpException(401, 'User already exists');
     }
 
+    user.password = hashSync(user.password as string);
     const newUser = await userODM.insert(user);
     return this.createUserDomain(newUser);
   }

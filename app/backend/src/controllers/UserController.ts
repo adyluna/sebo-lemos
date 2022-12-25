@@ -29,7 +29,7 @@ export default class UserController {
     try {
       await this.service.createUser(user);
       delete user.password;
-      return this.res.status(201).json({ user });
+      return this.res.status(201).json(user);
     } catch (error) {
       this.next(error);
     }
@@ -38,9 +38,9 @@ export default class UserController {
   public async login() {
     const { email, password } = this.req.body;
     
-    const user = await this.service.login(email, password);
+    const token = await this.service.login(email, password);
 
-    if (user) return this.res.status(201).json({ message: "User found!" });
+    if (token) return this.res.status(201).json({ token });
 
     return this.res.status(400).json({ message: 'User not found!' });
   }

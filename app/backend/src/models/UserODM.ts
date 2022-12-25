@@ -24,7 +24,6 @@ class UserODM {
   public async findOne(email: string): Promise<IUser | null> {
     const user = await this.model.findOne({email});
 
-    
     if (user) return user;
     return null;
   }
