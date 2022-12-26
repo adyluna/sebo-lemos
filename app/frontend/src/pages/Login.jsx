@@ -10,10 +10,10 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loginFailed, setLoginFailed] = useState(false)
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const endpoint = '/login';
-    const result = requestLogin(endpoint, {email, password})
+    const result = await requestLogin(endpoint, {email, password})
     
     if (result.token) {
       console.log(result.token);
