@@ -32,15 +32,15 @@ export const validateRegister = (req: Request, res: Response, next: NextFunction
   const { name, email, password } = req.body;
 
   if (!email || !password || !name) {
-    throw new HttpException(400, 'All fields must be filled');
+    throw new HttpException(400, 'Todos os campos precisam ser preenchidos');
   }
 
   if (validateEmail({email}).error) {
-    return res.status(400).json({ message: 'Email must be a valid email' });
+    return res.status(400).json({ message: 'Email precisa ser válido' });
   }
 
   if (validatePassword({password}).error) {
-    return res.status(400).json({ message: 'Password must be a minimum of 6 characters and a maximum of 12' });
+    return res.status(400).json({ message: 'A senha precisa ter no mínimo 6 e no máximo 12 caracteres' });
   }
 
   next();

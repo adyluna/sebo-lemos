@@ -20,9 +20,7 @@ const Register = () => {
 
       return setDoneRegistration(true);
     } catch (error) {
-      if (error.message.includes('401')) {
-        setErrorMessage('E-mail já cadastrado');
-      }
+      setErrorMessage(error.response.data.message);
       setFailedRegistration(true);
       return setDoneRegistration(false);
     }
