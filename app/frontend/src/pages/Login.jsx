@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { requestLogin, setToken } from '../services/requests';
 import logo from '../images/seboLogo.jpeg';
 import LoginContext from "../context/LoginContext";
@@ -16,17 +16,14 @@ const Login = () => {
     const result = await requestLogin(endpoint, {email, password})
     
     if (result.token) {
-      console.log(result.token);
       setToken(result.token)
       return setLogged(true);
     }
-
-    console.log(result);
     
     return setLoginFailed(true);
   };
 
-  if (logged) return <Redirect to="/matches" />;
+  if (logged) return <Navigate to="/home" />;
 
   return (
     <main className="form-signin w-25 m-auto mt-2">
@@ -63,7 +60,7 @@ const Login = () => {
           </label>
         </div>
         <button onClick={(event) => handleLogin(event)} className="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-        { loginFailed && <p  style={{ color: 'red', fontSize: 13 }}><em>*E-mail ou senha incorreta</em></p> }
+        { loginFailed && <p  style={{ color: 'red', fontSize: 13 }}><em>*E-mail ou senha incorretos</em></p> }
         <p className="mt-5 mb-3 text-muted">&copy; 2022</p>
       </form>
 </main>
