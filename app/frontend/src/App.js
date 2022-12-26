@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useState } from "react";
 import Home from './pages/Home';
 import About from './pages/About';
 import Books from './pages/Books';
@@ -22,7 +22,12 @@ function App() {
             <Route exact path="/" element={ <Home /> } />
             <Route exact path="/about" element={ <About /> } />
             <Route exact path="/books" element={ <Books /> } />
-            <Route exact path="/login" element={ <Login /> } />
+            <Route
+              exact
+              path="/login"
+              element={
+                <Login />
+              } />
         </Routes>
     </Container>
     <Footer />

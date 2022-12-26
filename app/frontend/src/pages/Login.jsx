@@ -8,19 +8,20 @@ const Login = () => {
   const { logged, setLogged } = useContext(LoginContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginFailed, setLoginFailed] = useState(false)
+  const [loginFailed, setLoginFailed] = useState(false);
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const endpoint = '/login';
-    const result = await requestLogin(endpoint, {email, password})
-    
-    if (result.token) {
-      setToken(result.token)
+
+    try {
+      const endpoint = '/login';
+      const { token } = await requestLogin(endpoint, {email, password});
+      setToken(token);
       return setLogged(true);
+    } catch (error) {
+      setLogged(false);
+      return setLoginFailed(true);
     }
-    
-    return setLoginFailed(true);
   };
 
   if (logged) return <Navigate to="/home" />;
