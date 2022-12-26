@@ -30,7 +30,9 @@ const Header = () => {
               <a href="/login">
                 <button type="button" className="btn btn-outline-light me-2">Entrar</button>
               </a>
-              <button type="button" className="btn btn-warning">Cadastre-se</button>
+              <a href="/register">
+                <button type="button" className="btn btn-warning">Cadastre-se</button>
+              </a>
              </div>
         }
       </div>

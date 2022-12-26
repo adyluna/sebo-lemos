@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Navigate } from 'react-router-dom';
-import { requestLogin, setToken } from '../services/requests';
+import { requestPost, setToken } from '../services/requests';
 import logo from '../images/seboLogo.jpeg';
 import LoginContext from "../context/LoginContext";
 
@@ -15,7 +15,7 @@ const Login = () => {
 
     try {
       const endpoint = '/login';
-      const { token } = await requestLogin(endpoint, {email, password});
+      const { token } = await requestPost(endpoint, {email, password});
       setToken(token);
       return setLogged(true);
     } catch (error) {
@@ -41,7 +41,7 @@ const Login = () => {
             placeholder="name@example.com"
             value={email}
           />
-          <label for="floatingInput">Email</label>
+          <label htmlFor="floatingInput">Email</label>
         </div>
         <div className="form-floating">
           <input
@@ -52,7 +52,7 @@ const Login = () => {
             placeholder="Password"
             value={password}
           />
-          <label for="floatingPassword">Senha</label>
+          <label htmlFor="floatingPassword">Senha</label>
         </div>
 
         <div className="checkbox mb-3">

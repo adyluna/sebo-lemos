@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import LoginContext from './context/LoginContext';
+import Register from './pages/Register';
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -22,12 +23,8 @@ function App() {
             <Route exact path="/" element={ <Home /> } />
             <Route exact path="/about" element={ <About /> } />
             <Route exact path="/books" element={ <Books /> } />
-            <Route
-              exact
-              path="/login"
-              element={
-                <Login />
-              } />
+            <Route exact path="/login" element={ <Login /> } />
+            <Route exact path="/register" element={ <Register /> } />
         </Routes>
     </Container>
     <Footer />
