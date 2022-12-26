@@ -4,9 +4,9 @@ const api = axios.create({
   baseURL: 'https://sebo-backend-production.up.railway.app/',
 });
 
-// export const setToken = (token) => {
-//   api.defaults.headers.common.Authorization = token;
-// };
+export const setToken = (token) => {
+  api.defaults.headers.common.Authorization = token;
+};
 
 export const requestData = async (endpoint) => {
   const result = await api.get(endpoint);
@@ -14,9 +14,9 @@ export const requestData = async (endpoint) => {
   return data;
 };
 
-// export const requestLogin = async (endpoint, body) => {
-//   const { data } = await api.post(endpoint, body);
-//   return data;
-// };
+export const requestLogin = async (endpoint, body) => {
+  const { data } = await api.post(endpoint, body);
+  return data;
+};
 
 export default api;
