@@ -3,6 +3,7 @@ import 'express-async-errors';
 import httpErrorMiddleware from './middlewares/http.error.middleware';
 import BookRoutes from './routes/BookRoutes';
 import UserRoutes from './routes/UserRoutes';
+import ImageRoutes from './routes/ImageRoutes';
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(ImageRoutes);
 app.use(BookRoutes);
 app.use(UserRoutes)
 app.use(httpErrorMiddleware);
