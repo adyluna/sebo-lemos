@@ -25,6 +25,13 @@ class ImageService {
 
     throw new HttpException(400, 'Imagem não encontrada')
   }
+
+  public async insertImage(): Promise<Image | null> {
+    const imageODM = new ImageODM();
+    const result = await imageODM.insertImage(); 
+
+    return this.createImageDomain(result);
+  }
 }
 
 export default ImageService;

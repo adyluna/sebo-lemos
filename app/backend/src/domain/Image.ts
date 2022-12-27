@@ -1,14 +1,18 @@
 class Image {
-  private bookName: string;
-  private file: string;
+  private _bookName: string;
+  private _file: Buffer;
 
   constructor(
     bookName: string,
-    file: string,
+    file: Buffer,
   ) {
-    this.bookName = bookName;
-    this.file = file;
+    this._bookName = bookName;
+    this._file = file;
 
+  }
+
+  public getFile() {
+    return this._file;
   }
 }
 

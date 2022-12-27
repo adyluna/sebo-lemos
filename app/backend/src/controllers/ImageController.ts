@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import IImage from '../interfaces/IImage';
 import ImageService from '../services/ImageService';
 
 export default class ImageController {
@@ -20,6 +19,11 @@ export default class ImageController {
     
     const image = await this.service.findImage(bookName);
 
+    return this.res.status(201).json(image?.getFile());
+  }
+
+  public async insertImage() {
+    const image = await this.service.insertImage();
     return this.res.status(201).json(image);
   }
 
