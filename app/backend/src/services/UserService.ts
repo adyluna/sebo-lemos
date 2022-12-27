@@ -54,7 +54,7 @@ class UserService {
 
     const userAlreadyExists = await this.findUser(user.email)
     if (userAlreadyExists) {
-      throw new HttpException(401, 'User already exists');
+      throw new HttpException(401, 'Email já cadastrado');
     }
 
     user.password = hashSync(user.password as string);
