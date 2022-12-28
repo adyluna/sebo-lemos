@@ -16,7 +16,7 @@ class Image {
     const b64 = buf.toString('base64');
     const mimeType = 'image/webp';
     
-    return `<img src="data:${mimeType};base64,${b64}" />`;
+    return `"data:${mimeType};base64,${b64}"`;
   }
 }
 
