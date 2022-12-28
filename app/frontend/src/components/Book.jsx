@@ -1,5 +1,5 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
+import { Container, Image, Col } from 'react-bootstrap';
 
 const Book = ({ name, author, genre, condition, price }) => {
 
@@ -12,13 +12,14 @@ const Book = ({ name, author, genre, condition, price }) => {
   }
 
   return (
-    <Container className="p-1 m-4 w-25 h-25">
+    <Col className="p-1 m-4">
+      <Image fluid href="https://sebo-backend-production.up.railway.app/images/test01" alt='test-image'/>
       <h5>{ truncate(name) }</h5>
       <p>Autor: { author }</p>
       <p>{ genre }</p>
       <p>{ condition }</p>
       { price && <p>R$ { price },00</p> }
-    </Container>
+    </Col>
   );
 };
 

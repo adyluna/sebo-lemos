@@ -18,16 +18,14 @@ function App() {
   <LoginContext.Provider value={{ logged, setLogged }}>
   <Container fluid className='App'>
     <Header />
-    <Container className='mt-4'>
-        <Routes>
-            <Route exact path="/" element={ <Home /> } />
-            <Route exact path="/home" element={ <Home /> } />
-            <Route exact path="/about" element={ <About /> } />
-            <Route exact path="/books" element={ <Books /> } />
-            <Route exact path="/login" element={ <Login /> } />
-            <Route exact path="/register" element={ <Register /> } />
-        </Routes>
-    </Container>
+    <Routes>
+        <Route exact path="/" element={ <Home /> } />
+        <Route exact path="/home" element={ <Home /> } />
+        <Route exact path="/about" element={ <About /> } />
+        <Route exact path="/books" element={ <Books /> } />
+        <Route exact path="/login" element={ <Login /> } />
+        <Route exact path="/register" element={ <Register /> } />
+    </Routes>
     <Footer />
   </Container>
   </LoginContext.Provider>
