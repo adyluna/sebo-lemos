@@ -11,8 +11,12 @@ class Image {
 
   }
 
-  public getFile() {
-    return this._file;
+  public renderImage() {
+    const buf = Buffer.from(this._file);
+    const b64 = buf.toString('base64');
+    const mimeType = 'image/webp';
+    
+    return `<img src="data:${mimeType};base64,${b64}" />`;
   }
 }
 

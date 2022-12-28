@@ -19,7 +19,7 @@ export default class ImageController {
     
     const image = await this.service.findImage(bookName);
 
-    return this.res.status(201).json(image?.getFile());
+    return this.res.status(201).send(image?.renderImage());
   }
 
   public async insertImage() {
