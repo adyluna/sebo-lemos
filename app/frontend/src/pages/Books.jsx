@@ -73,8 +73,7 @@ const Books = () => {
     return (
       <Container fluid className='m-2 text-center'>
         { SearchBar() }
-        <Container fluid>
-          <Row className='d-flex flex-wrap align-items-center justify-content-center m-2 p-1'>
+          <Row xs={1} className='align-items-center justify-content-center m-2 p-1'>
             { currentPosts.map(({ name, author, genre, condition, price }, index) => {
               return <Book
               key={index}
@@ -86,7 +85,6 @@ const Books = () => {
             />
           }) }
           </Row>
-        </Container>
         <Row>
           <BookPagination
           total={ Math.ceil(books.length / postsPerPage) }
