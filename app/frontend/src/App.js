@@ -16,7 +16,6 @@ function App() {
 
   return (
   <LoginContext.Provider value={{ logged, setLogged }}>
-  <Container fluid className='App'>
     <Header />
     <Routes>
         <Route exact path="/" element={ <Home /> } />
@@ -27,7 +26,6 @@ function App() {
         <Route exact path="/register" element={ <Register /> } />
     </Routes>
     <Footer />
-  </Container>
   </LoginContext.Provider>
   );
 }

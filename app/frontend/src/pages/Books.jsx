@@ -36,7 +36,7 @@ const Books = () => {
       return setBooks(allBooks);
     }
 
-    const result = books.filter(({ name }) => {
+    const result = allBooks.filter(({ name }) => {
       const bookName = name.toLowerCase();
       return bookName.includes(value.toLowerCase());
     });
@@ -73,7 +73,7 @@ const Books = () => {
     return (
       <Container fluid className='m-2 text-center'>
         { SearchBar() }
-          <Row xs={1} sm={1} md={4} className='align-items-center justify-content-center m-2 p-1'>
+          <Row xs={1} sm={1} md={2} lg={3} xl={4} className='align-items-center justify-content-center m-2 p-1'>
             { currentPosts.map(({ name, author, genre, condition, price }, index) => {
               return <Book
               key={index}
