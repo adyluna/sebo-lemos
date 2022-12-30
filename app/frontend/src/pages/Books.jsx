@@ -29,7 +29,7 @@ const Books = () => {
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = books && books.slice(firstPostIndex, lastPostIndex);
+  const currentBooks = books && books.slice(firstPostIndex, lastPostIndex);
 
   const filterBooks = (value) => {
     if (value === "") {
@@ -74,14 +74,10 @@ const Books = () => {
       <Container fluid className='m-2 text-center'>
         { SearchBar() }
           <Row xs={1} sm={1} md={2} lg={3} xl={4} className='align-items-center justify-content-center m-2 p-1'>
-            { currentPosts.map(({ name, author, genre, condition, price }, index) => {
+            { currentBooks.map((book, index) => {
               return <Book
               key={index}
-              name={name}
-              author={author}
-              genre={genre}
-              condition={condition}
-              price={price}
+              book={book}
             />
           }) }
           </Row>
