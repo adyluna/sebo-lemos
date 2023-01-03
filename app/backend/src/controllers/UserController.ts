@@ -45,4 +45,11 @@ export default class UserController {
     return this.res.status(400).json({ message: 'User not found!' });
   }
 
+  public validateToken = (req: Request, res: Response) => {
+    const { authorization } = req.headers;
+    const { role } = this.service.validateLogin(authorization as string);
+
+    return res.status(200).json({ role });
+  };
+
 }

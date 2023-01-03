@@ -21,7 +21,7 @@ const Book = ({book}) => {
     <Container className="mb-5">
     <Row xs={2} className="p-1 m-1 align-items-center justify-content-center bg-warning rounded">
       <Image className="w-50 h-50 p-2" src={logo} alt='test-image'/>
-      <Col fluid style={{ fontSize: 10 }} className="p-1">
+      <Col style={{ fontSize: 10 }} className="p-1">
       <p className="m-2" style={{ fontSize: 13 }}><strong>{ name }</strong></p>
       <p className="m-1">Autor: { author }</p>
       <p className="m-1">{ genre }</p>

@@ -39,6 +39,12 @@ class UserService {
     return token;
   };
 
+  validateLogin = (token: string): IUser => {
+    const data = this._jwt.validateToken(token);
+
+    return data;
+  };
+
   public async findUser(email: string): Promise<User | null> {
     const userODM = new UserODM();
     const result = await userODM.findOne(email);
