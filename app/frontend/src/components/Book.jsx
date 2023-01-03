@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Image, Col, Row, Button, ButtonGroup, Container } from 'react-bootstrap';
 import logo from '../images/seboLogo.jpeg';
 
 const Book = ({book}) => {
   const { name, author, genre, condition, price } = book;
-  const [bookInfo, setBookInfo] = useState();
+  // const [bookInfo, setBookInfo] = useState();
 
   
   // const imageURL = 'https://sebo-backend-production.up.railway.app/images/test01';
