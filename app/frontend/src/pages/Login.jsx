@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Navigate } from 'react-router-dom';
-import { requestPost, setToken } from '../services/requests';
+import { requestData, requestPost, setToken } from '../services/requests';
 import logo from '../images/seboLogo.jpeg';
 import LoginContext from "../context/LoginContext";
 import { Image, Container, Button } from 'react-bootstrap';
@@ -17,7 +17,14 @@ const Login = () => {
     try {
       const endpoint = '/login';
       const { token } = await requestPost(endpoint, {email, password});
+
       setToken(token);
+
+      const { role } = await requestData('/login/validate', { email, password });
+
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', role);
+
       return setLogged(true);
     } catch (error) {
       setLogged(false);
