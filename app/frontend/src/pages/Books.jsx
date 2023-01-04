@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Button } from 'react-bootstrap';
 
-const Books = () => {
+const Books = ({addProductToCart}) => {
 
   const [allBooks, setAllBooks] = useState([]);
   const [books, setBooks] = useState([]);
@@ -78,6 +78,7 @@ const Books = () => {
               return <Book
               key={index}
               book={book}
+              addProductToCart={addProductToCart}
             />
           }) }
           </Row>

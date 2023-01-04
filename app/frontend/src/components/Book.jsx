@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Col, Row, Button, ButtonGroup, Container } from 'react-bootstrap';
 import logo from '../images/seboLogo.jpeg';
 
-const Book = ({book}) => {
+const Book = ({book, addProductToCart}) => {
   const { name, author, genre, condition, price } = book;
   // const [bookInfo, setBookInfo] = useState();
 
@@ -31,9 +31,14 @@ const Book = ({book}) => {
     </Row>
     <Row xs={2} className="align-items-center justify-content-center">
     <ButtonGroup size="sm" className="align-items-center justify-content-center">
-    {/* style={{ backgroundColor: '#3A095B' }} */}
       <Button className="bg-info">Detalhes</Button>
-      <Button className="bg-success" style={{ whiteSpace: 'nowrap' }}>Adicionar ao carrinho</Button>
+      <Button
+        className="bg-success"
+        style={{ whiteSpace: 'nowrap' }}
+        onClick={() => addProductToCart(book)}
+      >
+        Adicionar ao carrinho
+      </Button>
     </ButtonGroup>
   </Row>
     </Container>
