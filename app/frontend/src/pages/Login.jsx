@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
+import LoginContext from "../context/LoginContext";
 import { Navigate } from 'react-router-dom';
 import { requestData, requestPost, setToken } from '../services/requests';
 import logo from '../images/seboLogo.jpeg';
-import LoginContext from "../context/LoginContext";
 import { Image, Container, Button } from 'react-bootstrap';
 
 const Login = () => {
-  const { logged, setLogged } = useContext(LoginContext);
+  const {logged, setLogged} = useContext(LoginContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
@@ -24,7 +24,6 @@ const Login = () => {
 
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
-
       return setLogged(true);
     } catch (error) {
       setLogged(false);

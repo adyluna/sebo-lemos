@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
+import LoginContext from '../context/LoginContext';
 import logo from '../images/seboLogo.jpeg';
-import LoginContext from "../context/LoginContext";
 
 const Header = () => {
   const { logged } = useContext(LoginContext);
-  
+
   return (
     <header style={{ backgroundColor: '#3A095B' }} className="p-3">
     <div className="container-fluid">
