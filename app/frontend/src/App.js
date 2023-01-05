@@ -39,6 +39,7 @@ function App() {
   <LoginContext.Provider  value={{ logged, setLogged }}>
     <BrowserRouter>
       <Header />
+      <div style={{ backgroundColor: '#EBEEF3' }}>
       <Routes>
         <Route exact path="/" element={ <Home /> } />
         <Route exact path="/home" element={ <Home /> } />
@@ -48,6 +49,8 @@ function App() {
         <Route exact path="/register" element={ <Register /> } />
         <Route exact path="/cart" element={<ShoppingCart products={cartProducts}/>}/>
       </Routes>
+      </div>
+      
       <Footer />
     </BrowserRouter>
   </LoginContext.Provider>

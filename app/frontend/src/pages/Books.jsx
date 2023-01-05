@@ -72,7 +72,7 @@ const Books = ({addProductToCart}) => {
 
   const showBooks = () => {
     return (
-      <Container fluid className='m-2 text-center'>
+      <Container fluid className='text-center'>
         { SearchBar() }
         {
           bookNotFound
