@@ -2,17 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Book from '../components/Book';
 import BookPagination from '../components/BookPagination';
 import Loading from '../components/Loading';
-import { requestData } from '../services/requests';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/esm/Row';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import { Button } from 'react-bootstrap';
+import {Container, Row, Form, InputGroup, Button} from 'react-bootstrap';
 
-const Books = ({addProductToCart}) => {
+
+const Books = ({allBooks, addProductToCart}) => {
 
   const [bookNotFound, setBookNotFound] = useState(false);
-  const [allBooks, setAllBooks] = useState([]);
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
@@ -21,12 +16,8 @@ const Books = ({addProductToCart}) => {
   const [searchValue, setSearchValue] = useState(''); 
 
   useEffect(() => {
-    const endpoint = '/allbooks';
-    requestData(endpoint).then((response) => {
-      setAllBooks(response);
-      setBooks(response);
-    }).catch((error) => console.log(error));
-  }, []);
+    if (allBooks) setBooks(allBooks);
+  }, [allBooks]);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;

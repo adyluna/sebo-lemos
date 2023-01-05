@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { requestData } from './services/requests';
+
+import './App.css';
+
 import LoginContext from "./context/LoginContext";
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Books from './pages/Books';
-import './App.css';
 import Login from './pages/Login';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -13,7 +17,27 @@ import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
   const [logged, setLogged] = useState(false);
+  const [allBooks, setAllBooks] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
+
+  useEffect(() => {
+    const handleFetchBooks = () => {
+      const endpoint = '/allbooks';
+      requestData(endpoint).then((response) => {
+      setAllBooks(response);
+      }).catch((error) => console.log(error));
+    }
+
+    const handleCartProducts = () => {
+      const userCart = localStorage.getItem('cartProducts');
+      if (userCart) {
+        setCartProducts(JSON.parse(userCart));
+      }
+    }
+
+    handleFetchBooks();
+    handleCartProducts();
+  }, []);
   
   useEffect(() => {
     const userAlreadyLogged = localStorage.getItem('token');
@@ -22,35 +46,26 @@ function App() {
     } else setCartProducts(false);
   }, [logged]);
 
-  useEffect(() => {
-    const userCart = localStorage.getItem('cartProducts');
-    if (userCart) {
-      setCartProducts(JSON.parse(userCart));
-    }
-  }, []);
-
   const addProductToCart = (product) => {
     localStorage.setItem('cartProducts', JSON.stringify([...cartProducts, product]))
     setCartProducts([...cartProducts, product]);
   };
 
-
   return (
   <LoginContext.Provider  value={{ logged, setLogged }}>
     <BrowserRouter>
       <Header />
-      <div style={{ backgroundColor: '#EBEEF3' }}>
+      <div style={{ backgroundColor: '#EBEEF3' }} className="text-center">
       <Routes>
-        <Route exact path="/" element={ <Home /> } />
-        <Route exact path="/home" element={ <Home /> } />
+        <Route exact path="/" element={ <Home allBooks={allBooks} addProductToCart={addProductToCart}/> } />
+        <Route exact path="/home" element={ <Home allBooks={allBooks} addProductToCart={addProductToCart}/> } />
         <Route exact path="/about" element={ <About /> } />
-        <Route exact path="/books" element={ <Books addProductToCart={addProductToCart}/> } />
+        <Route exact path="/books" element={ <Books allBooks={allBooks} addProductToCart={addProductToCart}/> } />
         <Route exact path="/login" element={ <Login /> } />
         <Route exact path="/register" element={ <Register /> } />
         <Route exact path="/cart" element={<ShoppingCart products={cartProducts}/>}/>
       </Routes>
       </div>
-      
       <Footer />
     </BrowserRouter>
   </LoginContext.Provider>
