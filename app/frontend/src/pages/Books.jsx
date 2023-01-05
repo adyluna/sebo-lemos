@@ -11,6 +11,7 @@ import { Button } from 'react-bootstrap';
 
 const Books = ({addProductToCart}) => {
 
+  const [bookNotFound, setBookNotFound] = useState(false);
   const [allBooks, setAllBooks] = useState([]);
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,8 +43,9 @@ const Books = ({addProductToCart}) => {
     });
 
     if (result.length === 0) {
-      setBooks(allBooks)
+      setBookNotFound(true);
     } else {
+      setBookNotFound(false);
       setBooks(result); 
     }
   };
@@ -56,8 +58,7 @@ const Books = ({addProductToCart}) => {
               placeholder="Procure um livro"
               aria-label="Procure um livro"
               aria-describedby="basic-addon1"
-              onChange={(event) => filterBooks(event.target.value)}
-              onKeyDown={(event) => filterBooks(event.target.value)}
+              onChange={(event) => setSearchValue(event.target.value)}
             />
             <Button onClick={() => filterBooks(searchValue)} className="btn-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -73,7 +74,10 @@ const Books = ({addProductToCart}) => {
     return (
       <Container fluid className='m-2 text-center'>
         { SearchBar() }
-          <Row xs={1} sm={1} md={2} lg={3} xl={4} className='align-items-center justify-content-center m-2 p-1'>
+        {
+          bookNotFound
+            ? <p>Nenhum livro com esse nome foi encontrado.</p>
+            : <Row xs={1} sm={1} md={2} lg={3} xl={4} className='align-items-center justify-content-center m-2 p-1'>
             { currentBooks.map((book, index) => {
               return <Book
               key={index}
@@ -82,12 +86,15 @@ const Books = ({addProductToCart}) => {
             />
           }) }
           </Row>
+        }
         <Row>
-          <BookPagination
-          total={ Math.ceil(books.length / postsPerPage) }
-          current={ currentPage }
-          onChangePage={ setCurrentPage }
-          />
+          {
+            !bookNotFound && <BookPagination
+            total={ Math.ceil(books.length / postsPerPage) }
+            current={ currentPage }
+            onChangePage={ setCurrentPage }
+            />
+          }
         </Row>
       </Container>
     )
