@@ -49,7 +49,7 @@ const Home = ({allBooks, addProductToCart}) => {
       <h3 className='mb-4'>Relacionado</h3>
       <Row md={2} sm={1} xs={1} className="align-items-center justify-content-center p-3">
         <Col>
-        <div className="p-2 card flex-md-row mb-4 box-shadow h-md-250 align-items-center justify-content-center">
+        <div style={{ backgroundColor: '#C9CDEC' }} className="p-2 card flex-md-row mb-4 box-shadow h-md-250 align-items-center justify-content-center">
           <div className="card-body d-flex flex-column align-items-start">
             <strong className="d-inline-block mb-2 text-primary">Mundo</strong>
             <h3 className="mb-0">
@@ -63,7 +63,7 @@ const Home = ({allBooks, addProductToCart}) => {
           </div>
         </Col>
         <Col>
-        <div className="p-2 card flex-md-row mb-4 box-shadow h-md-250 align-items-center justify-content-center">
+        <div style={{ backgroundColor: '#C9CDEC' }} className="p-2 card flex-md-row mb-4 box-shadow h-md-250 align-items-center justify-content-center">
           <div className="card-body d-flex flex-column align-items-start">
             <strong className="d-inline-block mb-2 text-primary">Mundo</strong>
             <h3 className="mb-0">
