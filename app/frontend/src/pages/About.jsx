@@ -7,10 +7,10 @@ class About extends React.Component {
     return (
       <Container>
         <Row className='align-itens-center justify-content-center'>
-          <Col lg={6}>
+          <Col lg={6} className="mt-3 p-2">
             <Image roundedCircle fluid src={logo} alt='sebo-logo'/>
           </Col>
-          <Col lg={6} className="p-3">
+          <Col lg={6} className="p-3 mt-3">
             <p style={{ fontSize: '2vw' }} className='font-monospace'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
               magna aliqua. Consequat ac felis donec et. Nulla aliquet enim tortor at. Lacus sed viverra tellus in. Urna nunc 
