@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row, Image } from 'react-bootstrap';
-import logo from '../images/seboLogo.jpeg';
+import biancaEstande from '../images/biancaEstande.png';
 
 class About extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class About extends React.Component {
       <Container>
         <Row className='align-itens-center justify-content-center'>
           <Col lg={6} className="mt-3 p-2">
-            <Image roundedCircle fluid src={logo} alt='sebo-logo'/>
+            <Image fluid src={biancaEstande} alt='sebo-logo'/>
           </Col>
           <Col lg={6} className="p-3 mt-3">
             <p style={{ fontSize: '2vw' }} className='font-monospace'>

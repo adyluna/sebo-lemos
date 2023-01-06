@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import seboLogo from '../images/seboLogo.jpeg';
+import baseImage01 from '../images/baseImage01.webp';
+import baseImage02 from '../images/baseImage02.webp';
 import Book from '../components/Book';
 import Loading from '../components/Loading';
 
@@ -58,7 +59,7 @@ const Home = ({allBooks, addProductToCart}) => {
             <p className="card-text mb-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="about">Continue lendo</a>
           </div>
-          <img src={seboLogo} alt="sebo-logo" className="w-50 h-50 p-2"/>
+          <img src={baseImage01} alt="sebo-logo" className="w-50 h-50 p-2"/>
           </div>
         </Col>
         <Col>
@@ -72,7 +73,7 @@ const Home = ({allBooks, addProductToCart}) => {
             <p className="card-text mb-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="about">Continue lendo</a>
           </div>
-          <img src={seboLogo} alt="sebo-logo" className="w-50 h-50 p-2"/>
+          <img src={baseImage02} alt="sebo-logo" className="w-50 h-50 p-2"/>
           </div>
         </Col>
       </Row>
