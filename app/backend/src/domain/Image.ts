@@ -15,8 +15,8 @@ class Image {
     const buf = Buffer.from(this._file);
     const b64 = buf.toString('base64');
     const mimeType = 'image/webp';
-    // w-50 h-50 
-    return `<img style={{ width: 50, height: 50 }} className="p-2" alt='test-image' src="data:${mimeType};base64,${b64}" />`;
+    
+    return `<img className="w-25 h-25  p-2" alt='test-image' src="data:${mimeType};base64,${b64}" />`;
   }
 }
 
