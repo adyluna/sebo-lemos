@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Register from './pages/Register';
 import ShoppingCart from "./pages/ShoppingCart";
+import Profile from "./pages/Profile";
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -57,6 +58,7 @@ function App() {
       <Header />
       <div style={{ backgroundColor: '#EBEEF3' }} className="text-center">
       <Routes>
+        <Route exact path="/profile" element={ <Profile /> } />
         <Route exact path="/" element={ <Home allBooks={allBooks} addProductToCart={addProductToCart}/> } />
         <Route exact path="/home" element={ <Home allBooks={allBooks} addProductToCart={addProductToCart}/> } />
         <Route exact path="/about" element={ <About /> } />

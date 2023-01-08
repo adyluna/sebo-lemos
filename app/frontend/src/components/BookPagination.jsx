@@ -26,7 +26,7 @@ const BookPagination = ({  total, current, onChangePage }) => {
         <Pagination.Item key={2} data-page={2} active={2===current} onClick={() => onChangePage(2)}>
           {2}
         </Pagination.Item>
-        <Pagination.Ellipsis />
+        <Pagination.Ellipsis key="ellipsis"/>
         <Pagination.Item key={total -1} data-page={total -1} active={total -1===current} onClick={() => onChangePage(total -1)}>
           {total -1}
         </Pagination.Item>

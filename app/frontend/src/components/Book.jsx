@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { requestImage } from "../services/requests";
-import { Image, Col, Row, Button, ButtonGroup, Container } from 'react-bootstrap';
-import logo from '../images/seboLogo.jpeg';
+import { Col, Row, Button, ButtonGroup, Container } from 'react-bootstrap';
 
 const Book = ({book, addProductToCart}) => {
   const [bookImage, setBookImage] = useState(null);
@@ -20,7 +19,7 @@ const Book = ({book, addProductToCart}) => {
     <Container className="mb-5">
     <Row xs={2} style={{ backgroundColor: '#C9CDEC' }} className="p-1 m-1 align-items-center justify-content-center rounded">
       { bookImage }
-      <Col style={{ fontSize: 10 }} className="p-1">
+      <Col style={{ fontSize: 10, width: 50, height: 50 }} className="p-1">
       <p className="m-2" style={{ fontSize: 13 }}><strong>{ name }</strong></p>
       <p className="m-1">Autor: { author }</p>
       <p className="m-1">{ genre }</p>
