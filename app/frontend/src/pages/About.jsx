@@ -1,30 +1,13 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import biancaEstande from '../images/biancaEstande.png';
-import { requestImage } from '../services/requests';
-import parse from 'html-react-parser';
 
 const About = () => {
-  const [imageString, setImageString] = useState('')
-  
-
-  useEffect(() => {
-    const handleGetImage = async () => {
-      const { data } = await requestImage('/images/test01');
-
-      setImageString(data);
-    }
-
-    handleGetImage();
-  }, []);
-
-
     return (
       <Container>
         <Row className='align-itens-center justify-content-center'>
           <Col lg={6} className="mt-3 p-2">
-          { parse(imageString) }
+          <Image fluid alt='bianca-estande' src={biancaEstande}/>
           </Col>
           <Col lg={6} className="p-3 mt-3">
             <p style={{ fontSize: '2vw' }} className='font-monospace'>

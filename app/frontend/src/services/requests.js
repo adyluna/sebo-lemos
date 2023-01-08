@@ -1,4 +1,5 @@
 import axios from 'axios';
+import parse from 'html-react-parser';
 
 const api = axios.create({
   baseURL: 'https://sebo-backend-production.up.railway.app/',
@@ -9,8 +10,9 @@ export const setToken = (token) => {
 };
 
 export const requestImage = async (endpoint) => {
-  const result = await api.get(endpoint);
-  return result;
+  const { data } = await api.get(endpoint);
+  const renderImage = parse(data)
+  return renderImage;
 };
 
 export const requestData = async (endpoint) => {
