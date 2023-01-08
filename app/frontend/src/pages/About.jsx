@@ -1,10 +1,17 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import biancaEstande from '../images/biancaEstande.png';
 import { requestData } from '../services/requests';
 
 const About = () => {
-  const bookImage = requestData('/images/test01');
+  const [bookImage, setBookImage] = useState('')
+  
+
+  useEffect(() => {
+    const getImg = requestData('/images/test01');
+    setBookImage(getImg);
+  }, [])
 
     return (
       <Container>
