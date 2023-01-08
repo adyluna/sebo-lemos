@@ -10,6 +10,7 @@ const About = () => {
 
   useEffect(() => {
     const getImg = requestData('/images/test01');
+    console.log(getImg);
     setBookImage(getImg);
   }, [])
 

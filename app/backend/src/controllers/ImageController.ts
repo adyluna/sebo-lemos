@@ -18,8 +18,9 @@ export default class ImageController {
     const { bookName } = this.req.params;
     
     const image = await this.service.findImage(bookName);
+    const imageString = image?.renderImage();
 
-    return this.res.status(201).json(image?.renderImage());
+    return this.res.status(201).json({ imageString });
   }
 
   public async insertImage() {
