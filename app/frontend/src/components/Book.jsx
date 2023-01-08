@@ -10,7 +10,6 @@ const Book = ({book, addProductToCart}) => {
   useEffect(() => {
     const handleGetImage = async () => {
       const fetchImage = await requestImage('/images/test01');
-
       setBookImage(fetchImage);
     }
 
