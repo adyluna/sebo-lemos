@@ -1,14 +1,16 @@
 import React from 'react';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import biancaEstande from '../images/biancaEstande.png';
+import { requestData } from '../services/requests';
 
-class About extends React.Component {
-  render() {
+const About = () => {
+  const bookImage = requestData('/images/test01');
+
     return (
       <Container>
         <Row className='align-itens-center justify-content-center'>
           <Col lg={6} className="mt-3 p-2">
-            <Image fluid src={biancaEstande} alt='sebo-logo'/>
+            { bookImage }
           </Col>
           <Col lg={6} className="p-3 mt-3">
             <p style={{ fontSize: '2vw' }} className='font-monospace'>
@@ -25,7 +27,6 @@ class About extends React.Component {
         </Row>
       </Container>
     );
-  }
 }
 
 export default About;
