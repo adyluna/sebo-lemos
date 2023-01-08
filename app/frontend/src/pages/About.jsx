@@ -10,8 +10,8 @@ const About = () => {
 
   useEffect(() => {
     const handleGetImage = async () => {
-      const { data: { imageString } } = await requestImage('/images/test01');
-    setBookImage(imageString);
+      const requestedImage = await requestImage('/images/test01');
+    setBookImage(requestedImage);
     }
 
     handleGetImage();
