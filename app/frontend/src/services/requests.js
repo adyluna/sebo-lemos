@@ -8,6 +8,11 @@ export const setToken = (token) => {
   api.defaults.headers.common.Authorization = token;
 };
 
+export const requestImage = async (endpoint) => {
+  const result = await api.get(endpoint);
+  return result;
+};
+
 export const requestData = async (endpoint) => {
   const result = await api.get(endpoint);
   const { data } = result;
