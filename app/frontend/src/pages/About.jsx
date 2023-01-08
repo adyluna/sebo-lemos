@@ -10,7 +10,7 @@ const About = () => {
       <Container>
         <Row className='align-itens-center justify-content-center'>
           <Col lg={6} className="mt-3 p-2">
-            { bookImage }
+            <Image fluid src={bookImage} alt='sebo-logo'/>
           </Col>
           <Col lg={6} className="p-3 mt-3">
             <p style={{ fontSize: '2vw' }} className='font-monospace'>
