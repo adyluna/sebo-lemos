@@ -3,25 +3,28 @@ import { useState, useEffect } from 'react';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import biancaEstande from '../images/biancaEstande.png';
 import { requestImage } from '../services/requests';
+import parse from 'html-react-parser';
 
 const About = () => {
-  const [bookImage, setBookImage] = useState('')
+  const [imageString, setImageString] = useState('')
   
 
   useEffect(() => {
     const handleGetImage = async () => {
-      const requestedImage = await requestImage('/images/test01');
-    setBookImage(requestedImage);
+      const { data } = await requestImage('/images/test01');
+
+      setImageString(data);
     }
 
     handleGetImage();
-  }, [])
+  }, []);
+
 
     return (
       <Container>
         <Row className='align-itens-center justify-content-center'>
           <Col lg={6} className="mt-3 p-2">
-            { bookImage }
+          { parse(imageString) }
           </Col>
           <Col lg={6} className="p-3 mt-3">
             <p style={{ fontSize: '2vw' }} className='font-monospace'>

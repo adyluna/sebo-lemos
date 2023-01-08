@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/adyluna/sebo-lemos/issues"
   },
-  "homepage": "https://github.com/adyluna/sebo-lemos#readme"
+  "homepage": "https://github.com/adyluna/sebo-lemos#readme",
+  "dependencies": {
+    "html-react-parser": "^3.0.7"
+  }
 }
