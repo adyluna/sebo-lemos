@@ -52,8 +52,6 @@ function App() {
     setCartProducts([...cartProducts, product]);
   };
 
-  // Entrei!
-
   return (
   <LoginContext.Provider  value={{ logged, setLogged }}>
     <BrowserRouter>
